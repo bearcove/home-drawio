@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "org": "bearcove",
+    "name": "home-drawio",
+    "custom": {
+        "steps": [["just"]],
+        "files": ["dist/home-drawio"]
+    }
+}
