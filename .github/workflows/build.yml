@@ -16,7 +16,7 @@ jobs:
       GH_READWRITE_TOKEN: ${{ secrets.GH_READWRITE_TOKEN }}
       CLICOLOR: 1
       CLICOLOR_FORCE: 1
-      HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK: 1
+      HOMEBREW_NO_AUTO_UPDATE: 1
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
