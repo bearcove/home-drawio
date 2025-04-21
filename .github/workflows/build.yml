@@ -34,18 +34,9 @@ jobs:
           sudo mv beardist /usr/local/bin/
       - name: Install required dependencies
         run: |
-          # Install cargo tools
-          curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
-          cargo binstall -y cargo-sweep cargo-nextest just
-
-          # Install bun for JavaScript/TypeScript runtime
-          curl -fsSL https://bun.sh/install | bash
-
-          # Install pnpm package manager
-          brew install pnpm
-
-          # Install utility tools needed for the build script
-          brew install coreutils xz
+          # Install pnpm package manager and bun via tap
+          brew tap oven-sh/bun
+          brew install node pnpm cargo-sweep cargo-nextest just bun coreutils xz
       - name: Build
         run: |
           beardist build
