@@ -32,10 +32,20 @@ jobs:
           tar -xf beardist.tar.xz
           chmod +x beardist
           sudo mv beardist /usr/local/bin/
-      - name: Install cargo-binstall and other tools
+      - name: Install required dependencies
         run: |
+          # Install cargo tools
           curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
           cargo binstall -y cargo-sweep cargo-nextest just
+
+          # Install bun for JavaScript/TypeScript runtime
+          curl -fsSL https://bun.sh/install | bash
+
+          # Install pnpm package manager
+          brew install pnpm
+
+          # Install utility tools needed for the build script
+          brew install coreutils xz
       - name: Build
         run: |
           beardist build
