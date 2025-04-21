@@ -53,6 +53,7 @@ jobs:
     container:
       image: ghcr.io/bearcove/beardist:latest
     env:
+      GH_READWRITE_TOKEN: ${{ secrets.GH_READWRITE_TOKEN }}
       PNPM_HOME: /tmp/cache/pnpm-home
       BEARDIST_CACHE_DIR: /tmp/cache/beardist
       BEARDIST_ARTIFACT_NAME: ${{ matrix.artifact }}
